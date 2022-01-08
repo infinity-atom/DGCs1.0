@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>DGCs1.0</title>
+ <script>
+  function addItem() {
+    var newItem = document.createElement("div");
+    newItem.innerHTML = document.getElementById("box2").value + ": " + document.getElementById("box").value;
+    newItem.onclick = removeItem;
+    newItem.id = "deleteme"
+    document.getElementById("list").appendChild(newItem);
+    saveList();
+  }
+  function removeItem() {
+    if (confirm("Are you sure you want to delete?") == true) {
+      document.getElementById("list").removeChild(this);
+      saveList();
+    }
+  }
+  function saveList() {
+    localStorage.storedList = document.getElementById("list").innerHTML;
+  }
+  function loadList() {
+    document.getElementById("list").innerHTML = localStorage.storedList;
+    for(var i = 0; i < list.children.length; i++) {
+      list.children[i].onclick = removeItem;
+    }
+  }
+ </script>
+ <style>
+  .header {
+    height: 75px;
+    width: 100%;
+    background-color: gray;
+    float: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  .header:hover {
+    height: 75px;
+    width: 100%;
+    background-color: lightgray;
+    float: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  .app {
+    height: 600px;
+    width: 100%;
+    background-color: rgb(70, 70, 255);
+    float: center;
+  }
+  .app:hover {
+    height: 600px;
+    width: 100%;
+    background-color: rgb(32, 32, 255);
+    color: white;
+    float: center;
+  }
+  body {
+    background-color: black;
+    font-family: "Segoe UI", Tahoma;
+  }
+  input[type="button"] {
+   background-color: pink;
+  }
+ </style>
+</head>
+<body>
+ <div class="header">
+  <p>DGCs1.0 (Digital Gift Card Saves 1.0)</p>
+ </div>
+ <div class="app">
+  <p style="font-size:18px; font-style:bold;">Gift Card List</p>
+  <input type="text" id="box" placeholder="Add Code"/><input type="text" id="box2" placeholder="Add Label"/>
+  <br/>
+  <input type="button" value="Add Item" onclick="addItem();"/>
+  <br/>
+   <div id="list"></div>
+ </div>
+ <script>
+  if(localStorage.storedList) {
+   loadList();
+  }
+ </script>
+</body>
+</html>
