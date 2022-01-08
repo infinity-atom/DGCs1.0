@@ -1,0 +1,36 @@
+.header {
+    height: 75px;
+    width: 100%;
+    background-color: gray;
+    float: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  .header:hover {
+    height: 75px;
+    width: 100%;
+    background-color: lightgray;
+    float: center;
+    text-align: center;
+    font-size: 24px;
+  }
+  .app {
+    height: 600px;
+    width: 100%;
+    background-color: rgb(70, 70, 255);
+    float: center;
+  }
+  .app:hover {
+    height: 600px;
+    width: 100%;
+    background-color: rgb(32, 32, 255);
+    color: white;
+    float: center;
+  }
+  body {
+    background-color: black;
+    font-family: "Segoe UI", Tahoma;
+  }
+  input[type="button"] {
+   background-color: pink;
+  }
